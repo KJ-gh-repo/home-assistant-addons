@@ -11,11 +11,20 @@ Add-ons > Add-on Store > Repositories** in Home Assistant.
 
 ## Add-ons provided by this repository
 
-- [Kiosk Satellite Proxy](kiosk_satellite_proxy/README.md)
+- [Kiosk Satellite Proxy](kiosk_satellite_proxy/README.md) — opens the
+  [Kiosk Satellite](https://kiosksatellite.com/) Remote Administration
+  interface inside Home Assistant.
 
-The proxy exposes the Kiosk Satellite Remote Admin interface through Home
-Assistant ingress. Kiosk Satellite itself runs separately on the target device.
+The proxy forwards the Remote Administration web interface, REST requests, and
+live WebSocket connection through Home Assistant ingress to a Kiosk Satellite
+device on the local network. Kiosk Satellite itself runs separately on the
+target device. See the official
+[Remote Management API documentation](https://kiosksatellite.com/docs/remote-api/)
+for the service exposed by the device.
 
 This is an independent community add-on and is not affiliated with or endorsed
 by Kiosk Satellite. Its proxy foundation was derived from the MIT-licensed
 [Frigate Home Assistant add-ons](https://github.com/blakeblackshear/frigate-hass-addons).
+
+The Kiosk Satellite logo is used unmodified from the official project and
+remains subject to the [Kiosk Satellite license](https://github.com/jxlarrea/kiosk-satellite/blob/main/LICENSE).

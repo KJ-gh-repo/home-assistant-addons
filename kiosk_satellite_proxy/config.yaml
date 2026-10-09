@@ -1,5 +1,5 @@
 name: Kiosk Satellite Proxy
-version: "2.0.0"
+version: "2.0.1"
 panel_icon: "mdi:tablet-dashboard"
 panel_title: Kiosk Satellite
 slug: kiosk-satellite-proxy

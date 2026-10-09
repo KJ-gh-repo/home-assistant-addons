@@ -1,8 +1,29 @@
 # Kiosk Satellite Proxy
 
-This add-on makes the Remote Admin interface of a Kiosk Satellite device
+[Kiosk Satellite](https://kiosksatellite.com/) is a dedicated Home Assistant
+kiosk application. This add-on makes its Remote Administration interface
 available in the Home Assistant sidebar. It does not install or run Kiosk
 Satellite.
+
+## What the proxy does
+
+The connection path is:
+
+```text
+Browser → Home Assistant ingress → Kiosk Satellite Proxy → kiosk:2324
+```
+
+The add-on forwards all parts of Remote Administration:
+
+- the browser-based administration interface;
+- REST requests below `/api/`;
+- the `/api/ws` WebSocket used for live state, events, and logs.
+
+Home Assistant authenticates access to the ingress page. Kiosk Satellite keeps
+its own Remote Administration login; the add-on does not store the kiosk admin
+password. See the official
+[Remote Management API documentation](https://kiosksatellite.com/docs/remote-api/)
+for details about the server running on the device.
 
 Before starting the add-on, enable Remote Administration on the kiosk and set
 an admin password. The target must be reachable from the Home Assistant host.
@@ -46,3 +67,10 @@ Disable it if an upstream proxy must see only the Home Assistant add-on's IP.
 - A running Kiosk Satellite device with Remote Administration enabled
 - An admin password configured in Kiosk Satellite
 - Network access from Home Assistant to the kiosk's Remote Admin address
+
+## Project and logo
+
+This is an independent community add-on and is not affiliated with or endorsed
+by Kiosk Satellite. The Kiosk Satellite logo is used unmodified from the
+official project and remains subject to the
+[Kiosk Satellite license](https://github.com/jxlarrea/kiosk-satellite/blob/main/LICENSE).
