@@ -33,11 +33,11 @@ LABEL \
     maintainer="KJ <KJ@kj.kj>" \
     org.opencontainers.image.title="${BUILD_NAME}" \
     org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
-    org.opencontainers.image.vendor="Portainer Add-ons" \
+    org.opencontainers.image.vendor="KJ Home Assistant Add-ons" \
     org.opencontainers.image.authors="KJ <KJ@kj.kj>" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
-    org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/frigate_proxy/README.md" \
+    org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/kiosk_satellite_proxy/README.md" \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
