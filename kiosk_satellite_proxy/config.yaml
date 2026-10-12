@@ -1,9 +1,9 @@
 name: Kiosk Satellite Proxy
-version: "2.0.1"
+version: "2.1.0"
 panel_icon: "mdi:tablet-dashboard"
 panel_title: Kiosk Satellite
 slug: kiosk-satellite-proxy
-description: Access Kiosk Satellite Remote Admin from Home Assistant
+description: Access one or more Kiosk Satellite Remote Admin interfaces
 url: "https://github.com/KJ-gh-repo/home-assistant-addons"
 startup: application
 boot: auto
@@ -24,12 +24,22 @@ full_access: false
 environment: {}
 options:
   server: "http://ks-kiosk.local:2324"
+  name: "Main kiosk"
+  description: ""
   proxy_pass_host: false
   proxy_pass_real_ip: true
+  additional_kiosks: []
 schema:
   server: "match(^https?://.+$)"
+  name: str
+  description: str
   proxy_pass_host: bool
   proxy_pass_real_ip: bool
+  additional_kiosks:
+    - name: str
+      description: str?
+      server: "match(^https?://.+$)"
+      path: "match(^[a-z0-9][a-z0-9-]*$)"
 services: []
 arch:
   - aarch64

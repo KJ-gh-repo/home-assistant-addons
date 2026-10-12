@@ -3,13 +3,33 @@
 # Configures NGINX for use with this add-on.
 # ==============================================================================
 
-# The ^ prefix stops bashio::var.json from passing booleans as strings.
+readonly OPTIONS_FILE="/tmp/kiosk-satellite-proxy-options.json"
+readonly INGRESS_ENTRY="$(bashio::addon.ingress_entry)"
 
-bashio::var.json \
-    entry "$(bashio::addon.ingress_entry)" \
-    server "$(bashio::config 'server')" \
-    proxy_pass_host "^$(bashio::config 'proxy_pass_host')" \
-    proxy_pass_real_ip "^$(bashio::config 'proxy_pass_real_ip')" \
-    | tempio \
-        -template /etc/nginx/templates/ingress.gtpl \
-        -out /etc/nginx/servers/ingress.conf
+if jq -e '
+    [.additional_kiosks[]?.path] as $paths
+    | (($paths | index("main")) != null)
+      or (($paths | unique | length) != ($paths | length))
+  ' /data/options.json >/dev/null; then
+    bashio::exit.nok \
+      "Additional kiosk paths must be unique and 'main' is reserved."
+fi
+
+jq --arg entry "${INGRESS_ENTRY}" '
+    . + {entry: $entry}
+    | .server |= sub("/+$"; "")
+    | .additional_kiosks = ((.additional_kiosks // [])
+        | map(.server |= sub("/+$"; "")))
+  ' /data/options.json > "${OPTIONS_FILE}"
+
+mkdir -p /etc/nginx/html
+
+tempio \
+    -template /etc/nginx/templates/ingress.gtpl \
+    -out /etc/nginx/servers/ingress.conf \
+    < "${OPTIONS_FILE}"
+
+tempio \
+    -template /etc/nginx/templates/html/landing.html.gtpl \
+    -out /etc/nginx/html/landing.html \
+    < "${OPTIONS_FILE}"

@@ -13,11 +13,11 @@ Add-ons > Add-on Store > Repositories** in Home Assistant.
 
 - [Kiosk Satellite Proxy](kiosk_satellite_proxy/README.md) — opens the
   [Kiosk Satellite](https://kiosksatellite.com/) Remote Administration
-  interface inside Home Assistant.
+  interfaces inside Home Assistant.
 
 The proxy forwards the Remote Administration web interface, REST requests, and
-live WebSocket connection through Home Assistant ingress to a Kiosk Satellite
-device on the local network. Kiosk Satellite itself runs separately on the
+live WebSocket connection through Home Assistant ingress to one or more Kiosk Satellite
+devices on the local network. Kiosk Satellite itself runs separately on the
 target device. See the official
 [Remote Management API documentation](https://kiosksatellite.com/docs/remote-api/)
 for the service exposed by the device.

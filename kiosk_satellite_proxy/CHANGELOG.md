@@ -1,3 +1,9 @@
+### 2.1.0
+
+- Support multiple Kiosk Satellite Remote Administration backends in one add-on.
+- Add a kiosk selection page while retaining direct single-kiosk behavior.
+- Validate unique route paths and reserve `main` for the primary kiosk.
+
 ### 2.0.1
 
 - Add the official unmodified Kiosk Satellite icon and logo for Home Assistant.
