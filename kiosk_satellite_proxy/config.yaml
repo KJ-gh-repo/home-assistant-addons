@@ -1,5 +1,5 @@
 name: Kiosk Satellite Proxy
-version: "2.1.1"
+version: "2.1.2"
 panel_icon: "mdi:tablet-dashboard"
 panel_title: Kiosk Satellite
 slug: kiosk-satellite-proxy
@@ -7,6 +7,7 @@ description: Access one or more Kiosk Satellite Remote Admin interfaces
 url: "https://github.com/KJ-gh-repo/home-assistant-addons"
 startup: application
 boot: auto
+init: false
 watchdog: "http://[HOST]:[PORT:5001]/"
 ingress: true
 ingress_port: 5001

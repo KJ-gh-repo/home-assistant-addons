@@ -1,3 +1,9 @@
+### 2.1.2
+
+- Let s6-overlay run as PID 1 when Home Assistant starts the add-on.
+- Make the Nginx service scripts executable for s6-overlay v3.
+- Use the s6-overlay v3 container shutdown command when Nginx fails.
+
 ### 2.1.1
 
 - Update the Debian base image so fresh installations can build successfully.
