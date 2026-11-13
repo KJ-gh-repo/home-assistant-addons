@@ -1,5 +1,5 @@
 name: Kiosk Satellite Proxy
-version: "2.1.0"
+version: "2.1.1"
 panel_icon: "mdi:tablet-dashboard"
 panel_title: Kiosk Satellite
 slug: kiosk-satellite-proxy
@@ -10,7 +10,6 @@ boot: auto
 watchdog: "http://[HOST]:[PORT:5001]/"
 ingress: true
 ingress_port: 5001
-ingress_entry: /
 panel_admin: false
 ports:
   5001/tcp: null

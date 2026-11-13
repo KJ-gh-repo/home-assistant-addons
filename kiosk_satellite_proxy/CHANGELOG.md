@@ -1,3 +1,9 @@
+### 2.1.1
+
+- Update the Debian base image so fresh installations can build successfully.
+- Prevent a duplicated slash in the Home Assistant ingress URL for single-kiosk setups.
+- Normalize the single-kiosk upstream path, removing the need to enable multi-kiosk mode as a workaround.
+
 ### 2.1.0
 
 - Support multiple Kiosk Satellite Remote Administration backends in one add-on.
